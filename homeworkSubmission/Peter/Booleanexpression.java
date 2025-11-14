@@ -3,16 +3,16 @@ public class main
     //cigar party
     public cigarParty(int cigars, boolean isWeekend)
     {
-        if (isWeekend)
+        if (cigars >= 60)
         {
-            return cigars >= 60;
+            result = true;
         }
         else
         {
-            return cigars >= 40 && cigars <= 60;
+            result = false;
         }
-    }
-    
+        return result;
+    }    
     //Fasion date
     public int dateFashion(int you, int date) 
     {
@@ -45,18 +45,18 @@ public class main
         }
         return temp >= 60 && temp <= upper;
     }
+
     
     
     
-    //catch speed
     public int caughtSpeeding(int speed, boolean isBirthday) 
     {
         int allowance = 0;
-        if (isBrithday)
+        if (isBirthday)
         {
             allowance = 5;
         }
-        
+    
         if (speed <= 60 + allowance)
         {
             return 0; 
@@ -67,10 +67,10 @@ public class main
         }
         else 
         {
-        return 2; 
+            return 2; 
         }
     }
-    
+
     
     //Makebricks
     public boolean makeBricks(int small, int big, int goal)
