@@ -1,0 +1,179 @@
+/**
+
+ MagicSquare.java  11/12/13*
+ @author - Jane Doe
+ @author - Period n
+ @author - Id 0000000*
+ @author - I received help from ...**/
+
+public class MagicSquare
+{
+    private int[][] data;
+    private int rowSum;     //initialize to one of the row sums of data
+
+    //-----------------------------------------------------------------
+    // precondition: d is a square matrix with at least one row.
+    // Initializes data to a NEW COPY OF d, and the row sum
+    //-----------------------------------------------------------------
+    public MagicSquare(int[][] d)
+    {
+        this.rowSum = 0;
+        this.data = new int[d.length][d[0].length];
+        for (int i = 0; i < d.length; i++){
+            for (int j = 0; j < d[0].length; j++){
+                //calculate row sum only for first row
+                if (i==0){
+                    this.rowSum += d[0][j];
+                }
+                //initialize value at data[i][j] for row/columns
+                this.data[i][j] = d[i][j];
+            }
+        }
+    }
+    //-----------------------------------------------------------------
+    // returns true if each number in data is unique
+    // and in the range of 1 to data.length * data[0].length
+    // THIS METHOD IS EXTRA CREDIT.  DO IT LAST!
+    //-----------------------------------------------------------------
+    public boolean isUnique()
+    {
+        int sum = 0;
+        int[] values = new int[this.data.length * this.data.length];
+        //build 1 dimensional array for easier searching
+        for (int i = 0; i < this.data.length; i++){
+            for (int j = 0; j < this.data[0].length; j++){
+                //calculate row sum only for first row
+                values[i*this.data.length+j] = this.data[i][j];
+            }
+        }
+        for (int i = 0; i < values.length; i++){
+            for (int j = 0; j < values.length; j++){
+                if (j!=i){
+                    if (values[i] == values[j]){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true; //replace this
+    }
+
+    //-----------------------------------------------------------------
+    // returns true if data is a magic square.  A rectangular 2D array
+    // is magic iff every row, column, and diagonal sums to the same
+    // number and each number is unique and in the range from
+    // 1 to data.length * data[0].length
+    //-----------------------------------------------------------------
+    public boolean isMagic()
+    {
+        return this.rowSumsEqual()&& this.columnSumsEqual() && this.diagonalSumsEqual()&&this.isUnique(); //replace this
+    }
+
+    //-----------------------------------------------------------------
+    // returns true iff each individual row sum is equal to rowSum
+    //-----------------------------------------------------------------
+    public boolean rowSumsEqual()
+    {
+        //starting second row, compare to first(existing) rowSum
+        for (int i = 1;  i < this.data.length; i++){
+            if (rowSum(this.data[i]) != this.rowSum){
+                return false;
+            }
+        }
+        return true; //replace this
+    }
+
+    private int rowSum(int[] row)
+    {
+        int sum = 0;
+        for (int i = 0; i < row.length; i++){
+            sum+=row[i];
+        }
+        return sum; //replace this
+    }
+
+    //-----------------------------------------------------------------
+    // returns true iff each individual column sum is equal to rowSum
+    //-----------------------------------------------------------------
+    public boolean columnSumsEqual()
+    {
+        for (int i = 0; i < this.data.length; i++){
+            if (colSum(i) != this.rowSum){
+                return false;
+            }
+        }
+        return true; //replace this
+    }
+
+    private int colSum(int colNum)
+    {
+        int sum = 0;
+        for (int i = 0; i < this.data.length; i++){
+            sum+=this.data[i][colNum];
+        }
+        return sum;
+    }
+
+    //-----------------------------------------------------------------
+    // returns true iff each individual diagonal sum is equal to rowSum
+    //-----------------------------------------------------------------
+    public boolean diagonalSumsEqual()
+    {
+        int sum1 = 0;
+        //first diagonal goes top left to bottom right
+        for (int i = 0; i < this.data.length; i++){
+            sum1 += this.data[i][i];
+        }
+        int sum2 = 0;
+        //second diagonal goes top right to bottom left
+        for (int i = 0; i < this.data.length; i++){
+            sum2 += this.data[i][this.data.length-1-i];
+        }
+        return this.rowSum == sum1 && sum1 == sum2; //replace this
+    }
+
+    //-----------------------------------------------------------------
+    // returns a String that contains the values in data and a message
+    // stating whether or not magic is a magic square.
+    // The string format must EXACTLY match the following examples.
+    // There must be a single space character after each number.
+    // Note: "//"s should not be in your string.
+    //
+    // Example 1:
+    //
+    //    8 1 6
+    //    3 5 7
+    //    4 9 2
+    //    MAGIC SQUARE
+    //
+    // Example 2 (if you have finished the isUnique EXTRA CREDIT)
+    //
+    //    2 2 2
+    //    2 2 2
+    //    2 2 2
+    //    NOT A MAGIC SQUARE
+    //
+    // Example 3 (if you have not finished the isUnique EXTRA CREDIT)
+    //
+    //    2 2 2
+    //    2 2 2
+    //    2 2 2
+    //    MAGIC SQUARE
+    //-----------------------------------------------------------------
+    public String toString()
+    {
+        String a = "";
+        for (int i = 0; i < this.data.length; i++){
+            for (int j = 0; j < this.data[0].length; j++){
+                a+=this.data[i][j]+" ";
+            }
+            a+= "\n";
+        }
+        if (this.isMagic()){
+            a+="MAGIC SQUARE";
+        }else{
+            a+="NOT A MAGIC SQUARE";
+        }
+        return a;
+    }
+}
