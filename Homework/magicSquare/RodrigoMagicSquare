@@ -1,0 +1,125 @@
+**
+ * MagicSquareMain.java - 1/29/2026
+ *
+ * @author - Rodrigo Vargas
+ * @author - 2nd Period
+ */
+
+package labProject;
+
+public class MagicSquare
+{
+    private int[][] data;
+    private int rowSum; // initializes to one of the row sums of the data array
+ // --------------------------------------------------------------------------------------------------------------------------------------------
+    public MagicSquare(int[][] d)
+    {
+    	data = new int[d.length][d[0].length]; // creates a 2D array with the same dimensions of d
+    	for (int row = 0; row < d.length; row++) // loops through every row of the d 2D array
+    	{
+    		for (int col = 0; col < d[0].length; col++) // loops through every column of the d 2D array
+    		{
+    			data[row][col] = d[row][col]; // this copies each value from the "d" array into the "data" array
+    		}
+    	}
+    	
+    	rowSum = rowSum(data[0]); // initializes rowSum using the first row
+    }
+ 
+ // --------------------------------------------------------------------------------------------------------------------------------------------
+    public boolean isMagic()
+    {
+        return rowSumsEqual() && columnSumsEqual() && diagonalSumsEqual();  // it returns ALL of the necessary conditions for it to actually be a magic square in one go.
+    }
+ // --------------------------------------------------------------------------------------------------------------------------------------------
+    public boolean rowSumsEqual()
+    {
+    	for (int row = 0; row < data.length; row++)
+    	{
+    		if(rowSum(data[row]) != rowSum)
+    		{
+    			return false; // will return false if any row sum is different.
+    		}
+    	}
+        return true; // will return true if all row sums match.
+    }
+ // --------------------------------------------------------------------------------------------------------------------------------------------
+    private int rowSum(int[] row)
+    {
+        int sum = 0; // starts an integer variable to store the sum of each row.
+        for (int val : row) // enhanced for loop (aka for-each loop) that's used to go thru every value of the array one by one.
+        {
+        	sum += val; // adds each value of the row into the sum int.
+        }
+        return sum;
+    }
+ // --------------------------------------------------------------------------------------------------------------------------------------------
+    public boolean columnSumsEqual()
+    {
+        for (int col = 0; col < data[0].length; col++) // Loop through each index of the column
+        {
+            if (colSum(col) != rowSum)
+            {
+            	return false; // will return false if any sum of any column is different from rowSum.
+            }
+        }
+        return true; // will return true if all the column sums match.
+    }
+ // --------------------------------------------------------------------------------------------------------------------------------------------
+    private int colSum(int colNum)
+    {
+    	int sum = 0;
+        for (int col = 0; col < data.length; col++)
+        {
+            sum += data[col][colNum]; // Add values from each row in the column
+        }
+        return sum; // Return the total
+    }
+ // --------------------------------------------------------------------------------------------------------------------------------------------    
+    public boolean diagonalSumsEqual()
+    {
+        int sum1 = 0; // the sum of top-left to bottom-right diagonal.
+        int sum2 = 0; // the sum of top-right to bottom-left diagonal.
+        for (int i = 0; i < data.length; i++) // Loops through diagonal indices.
+        {
+            sum1 += data[i][i]; // Adds the first diagonal value.
+            sum2 += data[i][data.length - 1 - i]; // Adds the secondary diagonal value.
+        }
+        return sum1 == rowSum && sum2 == rowSum; // Both diagonals must match rowSum for this to return true.
+    }
+ // --------------------------------------------------------------------------------------------------------------------------------------------
+    public String toString()
+    {
+        String result = "";
+        for (int r = 0; r < data.length; r++)
+        {
+            for (int c = 0; c < data[0].length; c++) // Loops through columns
+            {
+                result += data[r][c] + " "; // Appends a value and a space
+            }
+
+            result += "\n"; // starts a new line after each row.
+        }
+
+        // Appends the final message that will be printed out.
+        if (isMagic())
+        {
+            result += "Magic square!";
+        }
+        else
+        {
+            result += "Not a Magic square!";
+        }
+        
+        return result; // this returns the completed string
+    }
+ // --------------------------------------------------------------------------------------------------------------------------------------------
+	public static void main(String[] args)
+	{
+		int[][] sq1 = {{8, 1, 6},
+			            {3, 5, 7},
+			            {4, 9, 2}};
+	  	MagicSquare magic = new MagicSquare(sq1);
+	  	System.out.println(magic);
+	}
+}
