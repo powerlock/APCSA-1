@@ -61,3 +61,7 @@
 
 <https://play.juicemind.com/dashboard/explore/class/ap-cs-a-codeorg?tab=quizzes>
 
+## Sorting algorithms visualization
+<https://www.toptal.com/developers/sorting-algorithms>
+
+<https://visualgo.net/en/sorting?slide=1>
