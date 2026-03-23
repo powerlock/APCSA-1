@@ -65,3 +65,6 @@
 <https://www.toptal.com/developers/sorting-algorithms>
 
 <https://visualgo.net/en/sorting?slide=1>
+
+## Big O and OMega analysis
+<https://cs.lmu.edu/~ray/notes/alganalysis/>
