@@ -1,0 +1,200 @@
+public class ArrayAlgorithms
+{
+    /**
+     * Find and return the minimum value in the array
+     */
+    public static int findMin(int[] numbers)
+    {
+        int min = numbers[0];
+
+        for(int i = 1; i < numbers.length; i++)
+        {
+            if(numbers[i] < min)
+            {
+                min = numbers[i];
+            }
+        }
+        return min;
+    }
+
+    /**
+     * Find and return the maximum value in the array
+     */
+    public static int findMax(int[] numbers)
+    {
+        int max = numbers[0];
+
+        for(int i = 1; i < numbers.length; i++)
+        {
+            if(numbers[i] > max)
+            {
+                max = numbers[i];
+            }
+        }
+        return max;
+    }
+
+    /**
+     * Find the sum of the array
+     */
+    public static int arraySum(int[] numbers)
+    {
+        int sum = 0;
+
+        for(int i = 0; i < numbers.length; i++)
+        {
+            sum += numbers[i];
+        }
+        return sum;
+    }
+
+    /**
+     * Find the average of the array
+     */
+    public static double arrayAverage(int[] numbers)
+    {
+        int sum = arraySum(numbers);
+
+        return (double) sum / numbers.length;
+    }
+
+    /**
+     * Find the mode of the array of numbers
+     */
+    public static int mode(int[] arr)
+    {
+        int mode = arr[0];
+        int maxCount = 0;
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            int count = 0;
+
+            for(int j = 0; j < arr.length; j++)
+            {
+                if(arr[j] == arr[i])
+                {
+                    count++;
+                }
+            }
+
+            if(count > maxCount)
+            {
+                maxCount = count;
+                mode = arr[i];
+            }
+        }
+        return mode;
+    }
+
+    /**
+     * Determine if all elements of the array are negative
+     */
+    public static boolean allAreNegative(int[] nums)
+    {
+        for(int num : nums)
+        {
+            if(num >= 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * returns true if all elements are strictly increasing
+     */
+    public static boolean isStrictlyIncreasing(int[] nums)
+    {
+        for(int i = 0; i < nums.length - 1; i++)
+        {
+            if(nums[i] >= nums[i + 1])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Determine if the array contains duplicate elements
+     */
+    public static boolean containsDuplicates(String[] words)
+    {
+        for(int i = 0; i < words.length; i++)
+        {
+            for(int j = i + 1; j < words.length; j++)
+            {
+                if(words[i].equals(words[j]))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Count how many four letter words
+     */
+    public static int countFourLetterWords(String[] words)
+    {
+        int count = 0;
+
+        for(String word : words)
+        {
+            if(word.length() == 4)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
+     * Shift left
+     */
+    public static void shiftLeft(int[] arr)
+    {
+        int temp = arr[0];
+
+        for(int i = 0; i < arr.length - 1; i++)
+        {
+            arr[i] = arr[i + 1];
+        }
+
+        arr[arr.length - 1] = temp;
+    }
+
+    /**
+     * Reverse array
+     */
+    public static void reverseArray(int[] arr)
+    {
+        for(int i = 0; i < arr.length / 2; i++)
+        {
+            int temp = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = temp;
+        }
+    }
+
+    /**
+     * Find alphabetically largest word
+     */
+    public static String findLarge(String[] words)
+    {
+        String largest = words[0];
+
+        for(int i = 1; i < words.length; i++)
+        {
+            if(words[i].compareTo(largest) > 0)
+            {
+                largest = words[i];
+            }
+        }
+
+        return largest;
+    }
+}
