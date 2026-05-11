@@ -1,4 +1,4 @@
-##Computational Thinking Focus (Traffic Flow, Stock Market, or any Simulator Project)
+## Computational Thinking Focus (Traffic Flow, Stock Market, or any Simulator Project)
  - Total: 100 points
  - Aligned with 2025-26 CED (Units 1–4 + Practices)
 
