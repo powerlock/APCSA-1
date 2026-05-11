@@ -9,7 +9,7 @@
    
 
 ## Category,Points,CED Alignment,Criteria (Projects must meet the following requirements)
-1. Design Document & Pseudocode|,15|,Practice 1 (Design)|,"Clear problem statement, student-created UML(draw or use draw.io) , complete pseudocode for simulation rules, parameter experiments explained."
+1. Design Document & Pseudocode|,15|,Practice 1 (Design)|,"Clear problem statement, student-created UML(draw or use draw.io)** , complete pseudocode for simulation rules, parameter experiments explained."
 2. Code Correctness & Functionality|,25|,"Units 1–4, Practice 2 (Develop)",Program runs without errors; simulation works with user-chosen parameters; edge cases handled.
 3. OOP Design & Class Creation|,15|,Unit 3,"Two custom classes with proper encapsulation, constructors, and meaningful methods."
 4. Data Structures & Algorithms|,15|,Unit 4,ArrayList used effectively; simulation loop + data analysis algorithms implemented.
@@ -23,3 +23,9 @@
 1. AI use allowed only if fully documented in development log. 
 2. Unmodified AI code without explanation = 0 for entire project.
 3. Highest scores go to students who clearly explain why they chose specific simulation rules and what their experiments revealed.
+
+
+** Where do I draw the diagram -UML
+•  First choice: diagrams.net (draw.io) — fastest, rubric-approved, zero barriers. 
+•  Second choice (if you enjoy coding): PlantUML or Mermaid.js — text-based feels more “computer scientist” and looks clean in your README. 
+•  Hand-drawn is still 100% acceptable (and shows personal effort).
