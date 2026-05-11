@@ -12,8 +12,6 @@
 7. Documentation & Development Log|,10|,Practice 4,"Javadoc-style comments, full development log with AI disclosures (if used), README with UML."
 8. "Demo, Analysis & Reflection"|,7|,All Practices,Live demo + explanation of design decisions; reflection shows computational thinking and real-world connection.
 
-
-## CategoryPointsCED AlignmentCriteria (Student must demonstrate)Design Document & Pseudocode15Practice 1 (Design)Clear problem statement, student-created UML, complete pseudocode for simulation rules, parameter experiments explained.Code Correctness & Functionality25Units 1–4, Practice 2 (Develop)Program runs without errors; simulation works with user-chosen parameters; edge cases handled.OOP Design & Class Creation15Unit 3Two custom classes with proper encapsulation, constructors, and meaningful methods.Data Structures & Algorithms15Unit 4ArrayList used effectively; simulation loop + data analysis algorithms implemented.Control Structures & Logic8Unit 2Appropriate if/else, loops, and Boolean logic for rules and decisions.Objects, Methods & Foundations5Unit 1Proper use of objects, Math class, Scanner/PrintWriter.Documentation & Development Log10Practice 4Javadoc-style comments, full development log with AI disclosures (if used), README with UML.Demo, Analysis & Reflection7All PracticesLive demo + explanation of design decisions; reflection shows computational thinking and real-world connection.
 Grading Notes
 
 AI use allowed only if fully documented in development log.
