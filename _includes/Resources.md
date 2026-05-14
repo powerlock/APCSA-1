@@ -68,3 +68,6 @@
 
 ## Big O and OMega analysis
 <https://cs.lmu.edu/~ray/notes/alganalysis/>
+
+## Final exam review
+<https://www.youtube.com/watch?v=mMHuPVI1dm8&list=PLBVLDmuxVxEGvx-Sir1Qkz84vmRUaNd5I&index=2>
